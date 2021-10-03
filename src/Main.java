@@ -25,8 +25,10 @@ public class Main {
 			else 
 				flag = false;
 			
-			if (flag)
+			if (flag) {
 				SqlUtil.DeleteData(con);
+			    SqlUtil.ResetSequence(con);
+			    }
 			else 
 				System.out.println("삭제하지 않겠습니다.");
 			

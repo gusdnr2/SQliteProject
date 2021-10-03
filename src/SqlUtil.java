@@ -19,8 +19,20 @@ public class SqlUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 
 }
+	public static void ResetSequence(Connection con) {
+		try {
+			Statement stat= con.createStatement();
+			String sql = "update sqlite_sequence set seq=0 where name='g_artists';";
+			int cnt = stat.executeUpdate(sql);
+			stat.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public static void EditData(Connection con, String col, String data, String id) {
 		try {
 			System.out.println("\n--- 데이터 수정 ---");
